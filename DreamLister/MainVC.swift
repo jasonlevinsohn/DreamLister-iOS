@@ -23,8 +23,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         tableView.delegate = self
         tableView.dataSource = self
         
-        attemptFetch()
+        // Uncomment to add test data into core data
+        // generateTestData()
         
+        attemptFetch()
         
     }
     
@@ -32,13 +34,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
         configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
-        return UITableViewCell()
+        return cell
         
     }
     
     // Update Cell
     func configureCell(cell: ItemCell, indexPath: NSIndexPath) {
-        // update cell
         let item = controller.object(at: indexPath as IndexPath)
         cell.configureCell(item: item)
     }
@@ -135,6 +136,28 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     
     func generateTestData() {
         // Create some test data
+        
+        let item = Item(context: context);
+        
+        item.title = "Egg Washer"
+        item.price = 1527;
+        item.details = "Please, Please wash all our eggs for us.  8 cases an hour you say?  Yes, please!!!"
+        
+        let item2 = Item(context: context);
+        
+        item2.title = "Post Hole Auger"
+        item2.price = 449;
+        item2.details = "We have a bunch of gates we need to make"
+        
+        let item3 = Item(context: context);
+        
+        item3.title = "Pallet Forks"
+        item3.price = 1200;
+        item3.details = "Man I would like to lift some big pallets and move them around"
+        
+        ad.saveContext()
+
+
     }
     
     
