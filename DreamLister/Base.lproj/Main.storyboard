@@ -33,6 +33,9 @@
                                     <segment title="Title"/>
                                 </segments>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="segmentChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="Hp9-EG-YeE"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lC6-hb-Dam">
                                 <rect key="frame" x="20" y="132" width="374" height="604"/>
@@ -149,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+            <point key="canvasLocation" x="1075.3623188405797" y="138.58695652173915"/>
         </scene>
         <!--Add/Edit-->
         <scene sceneID="NWH-Js-TjT">
@@ -163,7 +166,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePick" translatesAutoresizingMaskIntoConstraints="NO" id="TNn-Fu-Md2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePick" translatesAutoresizingMaskIntoConstraints="NO" id="TNn-Fu-Md2">
                                 <rect key="frame" x="20" y="72" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="1AR-QY-7F8"/>
@@ -176,6 +179,9 @@
                                     <constraint firstAttribute="height" constant="100" id="dlv-qX-NTC"/>
                                     <constraint firstAttribute="width" constant="100" id="vir-UR-rLo"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="addImage:" destination="Wef-Hx-64t" eventType="touchUpInside" id="iQP-5k-Vtn"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="McH-9R-55J" customClass="CustomTextField" customModule="DreamLister" customModuleProvider="target">
                                 <rect key="frame" x="128" y="82" width="266" height="40"/>
@@ -266,12 +272,16 @@
                     <navigationItem key="navigationItem" title="Add/Edit" id="5uf-2e-fvY">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="rln-Em-f7p">
                             <color key="tintColor" red="1" green="0.37828739030000003" blue="0.47207816320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="deletePressed:" destination="Wef-Hx-64t" id="gAl-le-Is2"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="detailsTxt" destination="vdv-5J-YrW" id="Qjt-py-Avd"/>
                         <outlet property="priceTxt" destination="sYR-Ut-v2n" id="sQa-qF-xZL"/>
                         <outlet property="storePicker" destination="u6L-7B-7Kq" id="amS-Pm-SD4"/>
+                        <outlet property="thumbImage" destination="TNn-Fu-Md2" id="Oxh-lZ-Vny"/>
                         <outlet property="titleTxt" destination="McH-9R-55J" id="4Dw-J7-bhG"/>
                     </connections>
                 </viewController>
@@ -284,7 +294,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m6b-w4-T4r" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hxz-oq-RuD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hxz-oq-RuD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.58657488270000002" green="0.58657488270000002" blue="0.58657488270000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
